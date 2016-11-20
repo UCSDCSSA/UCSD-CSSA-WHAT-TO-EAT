@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var dice: UIImageView!
     @IBOutlet weak var selectedName: UILabel!
     @IBOutlet weak var utf8Name: UILabel!
+    @IBOutlet weak var filterButto: UIButton!
     
     
     
@@ -39,10 +40,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
         myAnimation = ShakeAnimation(superViewController: self, randomPool: getPngSelected())
-        
+        filterButto.layer.cornerRadius = 10;
         print("!!!");
         print(getPngSelected());
         self.filterButton.isUserInteractionEnabled = true
@@ -81,6 +81,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        filterName.alpha = 1
         super.viewWillAppear(animated)
         UIApplication.shared.statusBarStyle = .lightContent
         print("!!!");

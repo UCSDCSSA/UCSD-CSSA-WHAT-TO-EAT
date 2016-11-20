@@ -282,6 +282,9 @@
 		5B6E714A1DB9BCB8008B1FD8 /* RestaurantCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B6E71491DB9BCB8008B1FD8 /* RestaurantCell.xib */; };
 		5BB0739B1DBC236E000ADC99 /* ListButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BB0739A1DBC236E000ADC99 /* ListButton.xib */; };
 		5BB607141DBAC9A3005429F5 /* FilterViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB607131DBAC9A3005429F5 /* FilterViewController+Delegates.swift */; };
+		8EA8696D1DD8FAB300DA885F /* Filter_Round.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA8696C1DD8FAB300DA885F /* Filter_Round.png */; };
+		8EA8696F1DD8FED600DA885F /* Filter_LongRound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA8696E1DD8FED600DA885F /* Filter_LongRound.png */; };
+		8EA869711DD8FEEE00DA885F /* Filter_LongRound.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EA869701DD8FEEE00DA885F /* Filter_LongRound.png */; };
 		8F476B951CF0E0C8006B21B7 /* chicken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8F476B941CF0E0C8006B21B7 /* chicken.mp3 */; };
 		8F98DC0D1C79091F00BBFDD8 /* RightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F98DC0C1C79091F00BBFDD8 /* RightArrow.png */; };
 		8FB9CD9E1C691AEE00618CAB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB9CD9D1C691AEE00618CAB /* CustomCell.swift */; };
@@ -440,6 +443,9 @@
 		5BB0739A1DBC236E000ADC99 /* ListButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListButton.xib; sourceTree = "<group>"; };
 		5BB607131DBAC9A3005429F5 /* FilterViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FilterViewController+Delegates.swift"; sourceTree = "<group>"; };
 		84D1383E3FC1EF77E7829E25 /* Pods_UCSD_CSSA_What_To_EatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UCSD_CSSA_What_To_EatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8EA8696C1DD8FAB300DA885F /* Filter_Round.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Filter_Round.png; path = Images/1.1/Filter_Round.png; sourceTree = "<group>"; };
+		8EA8696E1DD8FED600DA885F /* Filter_LongRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_LongRound.png; sourceTree = "<group>"; };
+		8EA869701DD8FEEE00DA885F /* Filter_LongRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Filter_LongRound.png; sourceTree = "<group>"; };
 		8F476B941CF0E0C8006B21B7 /* chicken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = chicken.mp3; path = Sound/chicken.mp3; sourceTree = "<group>"; };
 		8F98DC0C1C79091F00BBFDD8 /* RightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RightArrow.png; path = Images/UI/RightArrow.png; sourceTree = "<group>"; };
 		8FB9CD9D1C691AEE00618CAB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -577,6 +583,7 @@
 			children = (
 				5B6E71431DB9B9C0008B1FD8 /* CategoryHeaderView.swift */,
 				5B6E71451DB9B9D0008B1FD8 /* CategoryHeaderView.xib */,
+				8EA8696E1DD8FED600DA885F /* Filter_LongRound.png */,
 				5B0B06C71DB9713D004AAD0F /* ListButton.swift */,
 				5BB0739A1DBC236E000ADC99 /* ListButton.xib */,
 				5B6E71471DB9BC9D008B1FD8 /* RestaurantCell.swift */,
@@ -761,6 +768,7 @@
 				8FB9CDAE1C692A6600618CAB /* EditButton.png */,
 				482BD78F1CF0E80C00F2786E /* Emerald.png */,
 				8FB9CDAF1C692A6600618CAB /* FilterButton.png */,
+				8EA869701DD8FEEE00DA885F /* Filter_LongRound.png */,
 				482BD7901CF0E80C00F2786E /* Foodworx.png */,
 				482BD7911CF0E80C00F2786E /* Friends_House_Korean.png */,
 				482BD7921CF0E80C00F2786E /* FuAn_Garden.png */,
@@ -793,6 +801,7 @@
 				482BD7A21CF0E80C00F2786E /* Spicy_City_Chinese.png */,
 				482BD7A31CF0E80C00F2786E /* Spicy_House.png */,
 				482BD7A41CF0E80C00F2786E /* Spot_KTV.png */,
+				8EA8696C1DD8FAB300DA885F /* Filter_Round.png */,
 				482BD7A51CF0E80C00F2786E /* Sushi_Dokoro.png */,
 				482BD8231CF0E9FA00F2786E /* Szechuan_Chef.png */,
 				482BD7A61CF0E80C00F2786E /* Szechuan_Taste.png */,
@@ -951,6 +960,7 @@
 				4810491E1CFA3B4A00109208 /* Club_Med.png in Resources */,
 				482BD7D41CF0E80C00F2786E /* Jasmine_Seafood.png in Resources */,
 				4810495D1CFA3B4A00109208 /* Shogun.png in Resources */,
+				8EA869711DD8FEEE00DA885F /* Filter_LongRound.png in Resources */,
 				8FC404351CDE69670061C817 /* CellDescriptor3.plist in Resources */,
 				AAE65FE11CB069EE00433876 /* SettingListCell.xib in Resources */,
 				8FB9CDC81C692A6600618CAB /* Version2_36.png in Resources */,
@@ -973,6 +983,7 @@
 				AAB7247B1C66873F006F85BF /* shotgun.mp3 in Resources */,
 				AA59068E1BD2D3B6007B43FB /* LaunchScreen.storyboard in Resources */,
 				481049361CFA3B4A00109208 /* Hi_Thai.png in Resources */,
+				8EA8696F1DD8FED600DA885F /* Filter_LongRound.png in Resources */,
 				481049751CFA3B4A00109208 /* Yogurt_World.png in Resources */,
 				482BD7C81CF0E80C00F2786E /* Golden_City.png in Resources */,
 				48FF3F5F1CD538700080ED6A /* LCheckBox_Empty.png in Resources */,
@@ -994,6 +1005,7 @@
 				4810494E1CFA3B4A00109208 /* Roger's_Market.png in Resources */,
 				AA59068B1BD2D3B6007B43FB /* Assets.xcassets in Resources */,
 				482BD7BC1CF0E80C00F2786E /* Emerald.png in Resources */,
+				8EA8696D1DD8FAB300DA885F /* Filter_Round.png in Resources */,
 				481049781CFA3B4A00109208 /* ZanziBar.png in Resources */,
 				481049511CFA3B4A00109208 /* Roots.png in Resources */,
 				481049091CFA3B4A00109208 /* 64_Degrees.png in Resources */,

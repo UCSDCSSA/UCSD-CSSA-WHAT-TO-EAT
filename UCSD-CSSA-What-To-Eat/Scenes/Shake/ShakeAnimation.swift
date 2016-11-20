@@ -365,11 +365,17 @@ class ShakeAnimation
     
     private func chosenRotate (_: Bool) -> Void
     {
+        let frameSize = self.superViewController.filterButton.frame
         iconViewObj.layer.transform = CATransform3DMakeScale(1.24, 1.24, 1)
         UIView.animate(withDuration: 0.5, animations:
             {
                 self.superViewController.selectedName.alpha = 1
                 self.superViewController.utf8Name.alpha = 1
+                self.superViewController.filterName.alpha = 0
+                self.superViewController.filterButton.frame = CGRect(x:frameSize.minX, y:frameSize.minY, width: frameSize.height, height: frameSize.height)
+                self.superViewController.filterButton.layer.cornerRadius = frameSize.height/2
+                self.superViewController.filterButton.clipsToBounds = true
+                
             })
         self.callback?(iconViewObj.res)
     }
