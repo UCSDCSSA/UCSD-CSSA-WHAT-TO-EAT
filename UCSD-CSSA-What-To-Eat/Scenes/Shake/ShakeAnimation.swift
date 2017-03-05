@@ -283,6 +283,11 @@ class ShakeAnimation
     
     func resetView() -> Void
     {
+        self.superViewController.mapButton.alpha = 0
+        self.superViewController.yelpButton.alpha = 0
+        self.superViewController.mapButton.isEnabled = false
+        self.superViewController.yelpButton.isEnabled = false
+        self.superViewController.shaked = false
         iconView.alpha = 0
     }
     
@@ -356,6 +361,7 @@ class ShakeAnimation
             self.iconView.alpha = 1
         }
         
+        
         UIView.animate(withDuration: 0.3, delay: 0.5, options: UIViewAnimationOptions.curveEaseOut, animations:
             {
                 self.blurView.frame = self.superView.frame
@@ -365,18 +371,40 @@ class ShakeAnimation
     
     private func chosenRotate (_: Bool) -> Void
     {
+       
+    
         let frameSize = self.superViewController.filterButton.frame
+        let ybframeSize = self.superViewController.yelpButton.frame
+        let mbframeSize = self.superViewController.mapButton.frame
+        let interval = mbframeSize.minX - ybframeSize.minX;
         iconViewObj.layer.transform = CATransform3DMakeScale(1.24, 1.24, 1)
         UIView.animate(withDuration: 0.5, animations:
             {
+                
                 self.superViewController.selectedName.alpha = 1
                 self.superViewController.utf8Name.alpha = 1
-                self.superViewController.filterName.alpha = 0
-                self.superViewController.filterButton.frame = CGRect(x:frameSize.minX, y:frameSize.minY, width: frameSize.height, height: frameSize.height)
-                self.superViewController.filterButton.layer.cornerRadius = frameSize.height/2
+//              self.superViewController.filterName.alpha = 0
                 self.superViewController.filterButton.clipsToBounds = true
                 
-            })
+                if(!self.superViewController.shaked){
+                    self.superViewController.shaked = true;
+                    self.superViewController.filterButton.frame = CGRect(x:frameSize.minX, y:frameSize.minY, width: frameSize.height, height: frameSize.height)
+                    self.superViewController.filterButton.layer.cornerRadius = frameSize.height/2
+                
+                    self.superViewController.yelpButton.isEnabled = true
+                    self.superViewController.mapButton.isEnabled = true
+                    
+                    self.superViewController.yelpButton.frame = CGRect(x:frameSize.minX + interval, y:frameSize.minY, width: ybframeSize.height, height: ybframeSize.height)
+                
+                    self.superViewController.mapButton.frame = CGRect(x:frameSize.minX + interval * 2, y:frameSize.minY, width: mbframeSize.height, height: mbframeSize.height)
+                
+                    self.superViewController.yelpButton.alpha = 1.0
+                    self.superViewController.mapButton.alpha = 1.0
+                    
+                    
+                }
+        })
+    
         self.callback?(iconViewObj.res)
     }
 

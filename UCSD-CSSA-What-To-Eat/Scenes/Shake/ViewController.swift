@@ -13,21 +13,23 @@ var currentListName = "1"
 
 class ViewController: UIViewController {
     var def = UserDefaults.standard
-    var shaked = true
+    var shaked = false
     var cellDescriptors: NSMutableArray!
     var ListNames = ["Dining Hall", "Campus", "Convoy", "My List"];
     
     var myAnimation: ShakeAnimation?
     
     @IBOutlet weak var shakeMe: UIImageView!
-    @IBOutlet weak var filterButton: UIImageView!
-    @IBOutlet weak var filterName: UILabel!
+    //@IBOutlet weak var filterImageView: UIImageView!
+    //@IBOutlet weak var filterName: UILabel!
     @IBOutlet weak var dice: UIImageView!
     @IBOutlet weak var selectedName: UILabel!
     @IBOutlet weak var utf8Name: UILabel!
-    @IBOutlet weak var filterButto: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
     
+    @IBOutlet weak var yelpButton: UIButton!
     
+    @IBOutlet weak var mapButton: UIButton!
     
     //Prevent user from rotating the view
     override var shouldAutorotate : Bool {
@@ -42,10 +44,26 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         myAnimation = ShakeAnimation(superViewController: self, randomPool: getPngSelected())
-        filterButto.layer.cornerRadius = 10;
-        print("!!!");
-        print(getPngSelected());
-        self.filterButton.isUserInteractionEnabled = true
+    
+        let frameSize = filterButton.frame
+        
+        //filterButton.frame = CGRect(x:frameSize.minX, y:frameSize.minY, width: frameSize.height, height: frameSize.height)
+        filterButton.layer.cornerRadius = frameSize.height/3
+        
+        let ybframeSize = yelpButton.frame
+        let mbframeSize = mapButton.frame
+        
+        yelpButton.frame = CGRect(x:ybframeSize.minX, y:ybframeSize.minY, width: ybframeSize.height, height: ybframeSize.height)
+        yelpButton.layer.cornerRadius = ybframeSize.height/2
+        
+        mapButton.frame = CGRect(x:mbframeSize.minX, y:mbframeSize.minY, width: mbframeSize.height, height: mbframeSize.height)
+        mapButton.layer.cornerRadius = mbframeSize.height/2
+        
+        yelpButton.isEnabled = false
+        mapButton.isEnabled = false
+        
+        yelpButton.alpha = 0
+        mapButton.alpha = 0
         
         if(UserDefaults.standard.array(forKey: "ListNames") != nil)
         {
@@ -60,7 +78,7 @@ class ViewController: UIViewController {
         if(UserDefaults.standard.string(forKey: "currentListName") != nil)
         {
             currentListName = UserDefaults.standard.string(forKey: "currentListName")!
-            print("HERE")
+            //print("HERE")
         }
             
         else
@@ -73,25 +91,28 @@ class ViewController: UIViewController {
         
         if def.object(forKey: "EnableSound") == nil {
            def.set(true, forKey: "EnableSound")
-           print("set")
+           //print("set")
         }
-           
-        filterName.text = ListNames[Int(currentListName)! - 1];
+        
+//        filterName.text = ListNames[Int(currentListName)! - 1];
         //print("viewdidiload")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        filterName.alpha = 1
+        
+
         super.viewWillAppear(animated)
+//        filterName.alpha = 1
         UIApplication.shared.statusBarStyle = .lightContent
-        print("!!!");
-        print(getPngSelected());
+        //print("!!!");
+        //print(getPngSelected());
         self.myAnimation?.resetView()
         self.selectedName.alpha = 0
         self.utf8Name.alpha = 0
         self.shakeMe.alpha = 1
         self.dice.alpha = 1
         self.myAnimation?.updatePool(getPngSelected())
+        
         if(UserDefaults.standard.array(forKey: "ListNames") != nil)
         {
             ListNames = UserDefaults.standard.array(forKey: "ListNames")as! [String]
@@ -104,7 +125,7 @@ class ViewController: UIViewController {
         
         if(UserDefaults.standard.string(forKey: "currentListName") != nil)
         {
-            print("HERE")
+            //print("HERE")
 
             currentListName = UserDefaults.standard.string(forKey: "currentListName")!
         }
@@ -115,8 +136,8 @@ class ViewController: UIViewController {
         }
 
     
-        
-        filterName.text = ListNames[Int(currentListName)! - 1];
+        print(ListNames[Int(currentListName)! - 1])
+//        filterName.text = ListNames[Int(currentListName)! - 1];
 
     
         
@@ -130,6 +151,7 @@ class ViewController: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?){
         let touch: UITouch? = touches.first
         if touch?.view == filterButton{
+            
             let FilterViewController = self.storyboard!.instantiateViewController(withIdentifier: "FilterViewController")
             
             self.present(FilterViewController, animated: true, completion: nil)
@@ -185,16 +207,16 @@ class ViewController: UIViewController {
             // If it doesn't, copy it from the default file in the Bundle
             if let bundlePath = Bundle.main.path(forResource: "CellDescriptor" + currentListName, ofType: "plist") {
                 let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
-                print("Bundle CellDescriptor.plist file is --> \(resultDictionary?.description)")
+                //print("Bundle CellDescriptor.plist file is --> \(resultDictionary?.description)")
                 do {
                     try fileManager.copyItem(atPath: bundlePath, toPath: path)
                 } catch _ {
-                    print("error")
+                    //print("error")
                 }
                 //fileManager.copyItemAtPath(bundlePath, toPath: path)
-                print("copy")
+                //print("copy")
             } else {
-                print("CellDescriptor.plist not found. Please, make sure it is part of the bundle.")
+                //print("CellDescriptor.plist not found. Please, make sure it is part of the bundle.")
             }
         }
         
@@ -226,7 +248,7 @@ class ViewController: UIViewController {
                         }
                         var utf8Name = ((currentSectionCells as! NSArray)[row] as! NSDictionary)["utf8Name"]
                         if(utf8Name != nil){
-                            print ("tmp1 is")
+                            //print ("tmp1 is")
                             //print((currentSectionCells as! NSArray)[row]["a"])
                         }
                         else{
@@ -234,7 +256,7 @@ class ViewController: UIViewController {
                         }
                         let r = Resinfo(png:png, englishName:englishName as! String, utf8Name:utf8Name as! String)
                         
-                        print(r.png)
+                        //print(r.png)
                         
                         
                         returnArray.append(r)
